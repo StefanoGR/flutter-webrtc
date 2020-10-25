@@ -36,7 +36,7 @@ class MediaStreamTrackWeb extends MediaStreamTrack {
   @override
   Future<bool> switchCamera() async {
     final constraints = jsTrack.getConstraints();
-    constraints['facingMode']['exact'] = 'environment';
+    constraints['facingMode'] = 'environment';
     js.JsObject.fromBrowserObject(jsTrack)
         .callMethod('applyConstraints', [js.JsObject.jsify(constraints)]);
     return true;
